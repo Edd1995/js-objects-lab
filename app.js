@@ -46,3 +46,8 @@ for (gym of game.gyms) {
 //Excercise 7
 
 console.log(game.gyms)
+
+game.party[0] = pokemon[1];
+console.log(game.party)
+
+// excercise 8
