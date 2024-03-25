@@ -32,7 +32,7 @@ game.party.push(pokemon[64]); // alakazam added
 // Excercise 5
 
 game.party = game.party.sort((a, b) => a.hp - b.hp) 
-// Excercise 6
+// Excercise 6 // sort by hp
     
 
 console.log(game.party);
@@ -43,11 +43,17 @@ for (gym of game.gyms) {
     }
 }
 
-//Excercise 7
+//Excercise 7 set gyms to true under 3 difficulty
 
 console.log(game.gyms)
 
 game.party[0] = pokemon[1];
 console.log(game.party)
 
-// excercise 8
+// excercise 8 // evolve
+
+for (let partyMember of game.party) { 
+    console.log(partyMember.name)
+}
+
+// excercise 9, print names
