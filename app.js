@@ -20,9 +20,18 @@ const game = {
     difficulty: [
         { mode: "easy" },
         { mode: "medium" },
-        { mode: "hard"} // added 3 difficulty modes
+        { mode: "hard"} // added 3 difficulty modes EXCERCISE 3
   ]
 }
 
-game.party.push(pokemon[0]); // Selected starter Bulbasaur
-console.log(game.party)
+game.party.push(pokemon[0]); // Selected starter Bulbasaur EXCERCISE 4
+
+game.party.push(pokemon[90]); //cloyster added
+game.party.push(pokemon[93]); // gengar added
+game.party.push(pokemon[64]); // alakazam added
+// Excercise 5
+
+game.party = game.party.sort((a, b) =>  a.hp - b.hp)
+    
+
+console.log(game.party);
