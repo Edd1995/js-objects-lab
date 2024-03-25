@@ -31,7 +31,18 @@ game.party.push(pokemon[93]); // gengar added
 game.party.push(pokemon[64]); // alakazam added
 // Excercise 5
 
-game.party = game.party.sort((a, b) =>  a.hp - b.hp)
+game.party = game.party.sort((a, b) => a.hp - b.hp) 
+// Excercise 6
     
 
 console.log(game.party);
+
+for (gym of game.gyms) { 
+    if (gym.difficulty < 3) { 
+     gym.completed = true;
+    }
+}
+
+//Excercise 7
+
+console.log(game.gyms)
