@@ -14,7 +14,7 @@ const game = {
     ],
     items: [
         { name: "potion", quantity: 4 },
-        { name: "pokeball", quantity: 8 },
+        { name: "pokeball", quantity: 7 },
         { name: "rare candy", quantity: 99 },
     ],
     difficulty: [
@@ -23,18 +23,21 @@ const game = {
         { mode: "hard" } // added 3 difficulty modes EXCERCISE 3
     ],
     catchPokemon: (pokemonObj) => {
-        if (game.party.length < 6 ) {
-            game.party.push(pokemonObj)
-        }
-        else
-            game.collection.push(pokemonObj)  //excercise 18
-        for (let item of game.items) {
-            if (item.name === 'pokeball') {
+           for (let item of game.items) {
+               if (item.name === 'pokeball') {
+                   if (item.quantity === 0) { 
+                       return console.log('You are out of pokeballs') // excercise 19
+                   }
                 item.quantity -= 1; // excercise 12;
             }
+           }
+    
+        if (game.party.length < 6 ) {
+           return game.party.push(pokemonObj)
         }
-        console.log(game.items);
-        console.log(game.party)
+        else
+           return  game.collection.push(pokemonObj)  //excercise 18
+
     },
     gymCompleted: {
         completed: 0,
@@ -123,7 +126,7 @@ console.log(game.gyms);
 // excercise 16;
 console.log('')
 console.log('')
-console.log(game)
+// console.log(game)
 
 ////////////////
 /// LEVEL UP /// :}
@@ -132,19 +135,82 @@ console.log(game)
 //excercise 18
 game.catchPokemon(pokemon[12]);
 game.catchPokemon(pokemon[72]);
-game.catchPokemon(pokemon[33]);
-game.catchPokemon(pokemon[77]);
-game.catchPokemon(pokemon[65]);
 
-console.log('PARTY PARTY')
-console.log(game.party)
-console.log('PARTY PARTY')
 
-console.log('COLLECTION COLLECTION')
+console.log('PARTY PARTY');
+console.log(game.party);
+console.log('PARTY PARTY');
+
+console.log('COLLECTION COLLECTION');
 console.log(game.collection);
-console.log('COLLECTION COLLECTION')
+console.log('COLLECTION COLLECTION');
 console.log(game.items);
 
 
-
 //excercise 18
+
+//Excercise 19 in methods
+
+//excercise 20
+
+const pokeSearch = (pokemonName) => { 
+    pokemonName = pokemonName.toLowerCase();
+    pokemonName = pokemonName.charAt(0).toUpperCase() + pokemonName.slice(1);
+    console.log(pokemonName)
+    for (let pokey of pokemon) {
+        if (pokey.name === pokemonName) {
+            return pokey.number - 1;
+
+        }
+    }
+}
+
+game.catchPokemon(pokemon[pokeSearch('mew')]);
+console.log(game.collection)
+
+
+// EXCERCISE 20
+
+
+const newPokeList = {
+    grass: [],
+    bug: [],
+    water: [],
+    normal: [],
+    poison: [],
+    electric: [],
+    fire: [],
+    fairy: [],
+    psychic: [],
+    fighting: [],
+    ice: [],
+    dragon: [],
+}
+const types = [
+    "grass",
+    "bug",
+    "water",
+    "normal",
+    "poison",
+    "electric",
+    "fire",
+    "fairy",
+    "psychic",
+    "fighting",
+    "ice",
+    "dragon",
+]
+
+
+const pokeSort = (pokemonType) => { 
+    for (let pokeee of pokemon) {
+        if (pokeee.type === pokemonType) {
+            newPokeList[pokemonType].push(pokeee);
+        }
+    }
+    console.log(newPokeList);
+}
+
+for (let type of types) { 
+    pokeSort(type);
+}
