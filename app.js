@@ -23,8 +23,12 @@ const game = {
         { mode: "hard" } // added 3 difficulty modes EXCERCISE 3
     ],
     catchPokemon: (pokemonObj) => {
-        game.party.push(pokemonObj)
-        for(let item of game.items){
+        if (game.party.length < 6 ) {
+            game.party.push(pokemonObj)
+        }
+        else
+            game.collection.push(pokemonObj)  //excercise 18
+        for (let item of game.items) {
             if (item.name === 'pokeball') {
                 item.quantity -= 1; // excercise 12;
             }
@@ -37,8 +41,8 @@ const game = {
         incomplete: 0,
     }
     ,
-    gymStatus: () => { 
-        for (let gym of game.gyms) { 
+    gymStatus: () => {
+        for (let gym of game.gyms) {
             if (gym.completed === true) {
                 game.gymCompleted.completed++;
             }
@@ -46,9 +50,10 @@ const game = {
         }
         console.log(game.gymCompleted)  // excercise 14
     },
-    partyCount: () => { 
+    partyCount: () => {
         console.log(`Your party count ${game.party.length}`) // excercise 15
-    }
+    },
+    collection: [], // excercise 18
 }
 
 game.party.push(pokemon[0]); // Selected starter Bulbasaur EXCERCISE 4
@@ -116,3 +121,28 @@ for (gym of game.gyms) {
 }
 console.log(game.gyms);
 // excercise 16;
+console.log('')
+console.log('')
+console.log(game)
+
+////////////////
+/// LEVEL UP /// :}
+/////////////// !!!!!
+
+//excercise 18
+game.catchPokemon(pokemon[12]);
+game.catchPokemon(pokemon[72]);
+game.catchPokemon(pokemon[33]);
+game.catchPokemon(pokemon[77]);
+game.catchPokemon(pokemon[65]);
+
+console.log('PARTY PARTY')
+console.log(game.party)
+console.log('PARTY PARTY')
+
+console.log('COLLECTION COLLECTION')
+console.log(game.collection);
+console.log('COLLECTION COLLECTION')
+
+
+//excercise 18
