@@ -143,6 +143,8 @@ console.log('PARTY PARTY')
 console.log('COLLECTION COLLECTION')
 console.log(game.collection);
 console.log('COLLECTION COLLECTION')
+console.log(game.items);
+
 
 
 //excercise 18
