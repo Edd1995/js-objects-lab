@@ -24,6 +24,27 @@ const game = {
     ],
     catchPokemon: (pokemonObj) => {
         game.party.push(pokemonObj)
+        for(let item of game.items){
+            if (item.name === 'pokeball') {
+                item.quantity -= 1; // excercise 12;
+            }
+        }
+        console.log(game.items);
+        console.log(game.party)
+    },
+    gymCompleted: {
+        completed: 0,
+        incomplete: 0,
+    }
+    ,
+    gymStatus: () => { 
+        for (let gym of game.gyms) { 
+            if (gym.completed === true) {
+                game.gymCompleted.completed++;
+            }
+            else game.gymCompleted.incomplete++;
+        }
+        console.log(game.gymCompleted)  // excercise 14
     }
 }
 
@@ -70,5 +91,15 @@ console.log(pokemon[6].name) // excercise 10, print each starter name
 //
 
 game.catchPokemon(pokemon[144]);
-console.log(game.party)
 // excercise 11, catch pokemon method
+
+for (gym of game.gyms) { 
+    if (gym.difficulty < 6) { 
+     gym.completed = true;
+    }
+}
+console.log(game.gyms);
+// excercise 13;
+
+game.gymStatus(); 
+// excercise 14
