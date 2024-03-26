@@ -45,6 +45,9 @@ const game = {
             else game.gymCompleted.incomplete++;
         }
         console.log(game.gymCompleted)  // excercise 14
+    },
+    partyCount: () => { 
+        console.log(`Your party count ${game.party.length}`) // excercise 15
     }
 }
 
@@ -103,3 +106,13 @@ console.log(game.gyms);
 
 game.gymStatus(); 
 // excercise 14
+game.partyCount(); 
+// excercise 15
+
+for (gym of game.gyms) { 
+    if (gym.difficulty < 8) { 
+     gym.completed = true;
+    }
+}
+console.log(game.gyms);
+// excercise 16;
